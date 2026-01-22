@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Rutina Dios Total – Manual Completo</title>
+<style>
+  :root{--bg:#0a0a0a;--card:#161616;--red:#ff4d4d;--text:#f5f5f5;--done:#28a745}
+  body{font-family:-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial; background:var(--bg); color:var(--text); margin:0; padding:16px; -webkit-font-smoothing:antialiased;}
+  .container{max-width:900px;margin:0 auto;}
+  h1{color:var(--red);text-transform:uppercase;text-align:center;font-size:1.5rem;}
+  select{width:100%;padding:15px;border-radius:10px;border:2px solid var(--red);background:#111;color:var(--text);font-size:1rem;margin-bottom:12px;cursor:pointer;}
+  .meta{background:var(--card);padding:15px;border-radius:8px;border:1px solid #333;margin-bottom:12px;line-height:1.4;}
+  .exercise{background:#111;padding:15px;border-left:6px solid var(--red);border-radius:8px;margin-bottom:12px;display:flex;gap:12px;align-items:flex-start;transition:all 0.3s ease}
+  .exercise.done{border-left-color:var(--done);opacity:0.6}
+  .exercise h3{margin:0 0 8px 0;color:var(--red);font-size:1.1rem;text-transform:uppercase;line-height:1.2}
+  .detail{background:#070707;padding:12px;border-radius:6px;border:1px solid #222;color:#ddd;font-size:0.95rem;white-space:pre-line;line-height:1.5}
+  input[type="checkbox"]{transform:scale(1.5);margin-top:5px;cursor:pointer}
+  #progress{height:12px;background:#222;border-radius:6px;overflow:hidden;margin:10px 0 20px;border:1px solid #333}
+  #progressBar{height:100%;width:0;background:var(--done);transition:width 0.4s ease}
+  .superset{border-left-color:#9b59b6}
+  .bigtext{white-space:pre-wrap;background:#0e0e0e;padding:15px;border-radius:8px;border:1px solid #222;margin-top:20px;font-size:0.9rem;color:#bbb}
+  .checkrow{display:flex;align-items:flex-start;padding-top:2px}
+  footer{margin:30px 0;text-align:center;color:#666;font-size:0.8rem;border-top:1px solid #222;padding-top:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>💀 Rutina Dios Total — Manual Completo</h1>
+
+<div class="meta">
+Lee con calma. Este archivo contiene <strong>literalmente</strong> todo el texto detallado: reglas, rutina, RIR, ejecución y progresión. No se ha quitado nada.
+</div>
+
+<label for="day" style="display:block;margin-bottom:8px;font-weight:bold;color:var(--red)">SELECCIONA TU ENTRENAMIENTO:</label>
+<select id="day">
+  <option value="lunes">Lunes – Empuje</option>
+  <option value="martes">Martes – Jalón</option>
+  <option value="miercoles">Miércoles – Piernas A</option>
+  <option value="jueves">Jueves – Torso / Brazos</option>
+  <option value="viernes">Viernes – Piernas B</option>
+  <option value="descanso">Sábado / Domingo (Descanso)</option>
+</select>
+
+<div id="progress"><div id="progressBar"></div></div>
+
+<div id="content"></div>
+
+<script>
+const fullData = {
+  "lunes": [
+    {
+      "n":"Press de banca con barra — 4×6–8 — RIR 1–2 — Descanso 120s",
+      "d":`Qué hace: Principal movimiento de empuje; trabaja pecho mayor, deltoides anterior y tríceps.
+Setup: Acuéstate en banco plano. Pie firme en el suelo (apóyalos para generar tensión), escápulas retraídas y pecho “alto” (sacar el pecho), zona lumbar con una curva natural (no hiperextender). Agarre a la anchura que te permita bajar la barra hasta la línea media del pecho manteniendo codo ~45°.
+Ejecución paso a paso:
+  1. Saca la barra del soporte con ayuda si hace falta, posición inicial con brazos extendidos.
+  2. Inspira profundo y baja la barra 2–3s controlado hasta tocar ligeramente el pecho (no rebotar).
+  3. Mantén 0–1s de tensión al tocar pecho (siente el estiramiento).
+  4. Empuja explosivo 1–2s hasta extensión parcial; aprieta el pecho arriba 1s. Exhala al empujar.
+  5. Repite hasta el RIR objetivo.
+Errores comunes: Rebotar la barra en el pecho; abrir demasiado codos (riesgo hombro); pies en el aire.
+Tips: Mantén escápulas apretadas durante todo el set; si fallas, pide spotter. Progresión: añade 2.5–5% de carga cuando puedas completar 4×8 con buen RIR.`
+    },
+    {
+      "n":"Press militar con barra (de pie) — 3×8–10 — RIR 1–2 — Descanso 90s",
+      "d":`Qué hace: Hombro (deltoides) y estabilidad del core.
+Setup: Barra a la altura de clavículas; pies a anchura de hombros; la espalda neutra.
+Ejecución:
+  1. Inhala, empuja la barra hacia arriba 1–2s hasta casi bloqueo.
+  2. Baja 2–3s controlado hasta la altura de los hombros. Exhala al empujar.
+Errores: Arquear la espalda para subir más (en vez de apretar el core).
+Tips: Aprieta el core y glúteos, mira al frente; si fallas, reduce carga o haz sentado para menos estrés lumbar. Progresión: aumenta 1–2.5 kg cada 1–2 semanas si controlas el RIR.`
+    },
+    {
+      "n":"Aperturas con mancuernas — 3×10–12 — RIR 1–2 — Descanso 60s",
+      "d":`Qué hace: Aislamiento del pecho; estira y trabaja la parte media/lateral del pectoral.
+Setup: Banco plano; mancuernas juntas arriba. Codos ligeramente flexionados (~10–20°).
+Ejecución:
+  1. Baja las mancuernas en arco 2–3s hasta sentir estiramiento (no hagas profundidad extrema si tienes hombros débiles).
+  2. Sube 1–2s y aprieta pecho 1s arriba. Exhala al subir.
+Errores: Balancear el torso, usar brazos en vez de pecho.
+Tips: Usa peso moderado; controla la bajada; imagina “cerrar” el pecho como juntando mancuernas frente a ti.`
+    },
+    {
+      "n":"SUPERSET: Fondos (dips) + Extensión tríceps en cuerda — 3×8–10 + 10–12 — RIR0 en la última serie — Descanso 90s entre supersets",
+      "d":`Qué hace: Fondos: pecho + tríceps; Extensión: enfoque directo a tríceps. Superset para congestionar.
+Fondos (dips) — ejecución:
+  - Inclínate ligeramente hacia adelante si quieres más pecho; más vertical si quieres más tríceps.
+  - Baja 2–3s hasta que hombros y codos se alineen (no hiperextender).
+  - Sube explosivo 1–2s.
+Extensión tríceps cuerda — ejecución:
+  - Agarra cuerda, codos fijos al costado.
+  - Tira hacia abajo 1–2s, aprieta tríceps 1s; sube 2–3s controlado.
+Errores: Hombros colapsados en fondos; mover codos en las extensiones.
+Tips: Haz dips hasta RIR1 las primeras 2 series y RIR0 la última; sin pausa pasas a la cuerda; en la última serie de la cuerda baja carga y aprieta al fallo.`
+    },
+    {
+      "n":"Elevaciones laterales con mancuernas — 3×12–15 — RIR0–1 — Descanso 45–60s",
+      "d":`Qué hace: Aísla deltoides medio para ensanchar hombros.
+Ejecución:
+  - Mantén torso estable; sube mancuernas lateralmente 1–2s hasta la altura del hombro; baja 2–3s.
+  - No usar impulso de espalda.
+Errores: Balancear con torso o mentir con swing.
+Tips: Puedes hacer pequeñas pausas arriba 0.5–1s para más tensión; si vas RIR0, usa drop set en la última.`
+    },
+    {
+      "n":"Curl con barra — 4×8–10 — RIR 1–2 — Descanso 60–75s",
+      "d":`Qué hace: Bíceps braquial (fuerza + volumen).
+Ejecución:
+  - Codos pegados al torso.
+  - Sube 1–2s concentrando el curl, aprieta 1s arriba; baja 2–3s controlado.
+Errores: Balancear cuerpo o "hacer trampa" con la espalda.
+Tips: Si quieres más carga, usa barra EZ para menos muñeca. Última serie puedes ir a RIR0 si no te cascas el resto del día.`
+    },
+    {
+      "n":"Curl martillo — 3×10–12 — RIR0 en la última — Descanso 60s",
+      "d":`Qué hace: Braquial y braquiorradial (grosor del brazo).
+Ejecución: Muñeca neutra, subir 1–2s, bajar 2–3s. Aprieta arriba 1s.
+Errores: Balanceo.
+Tips: Última serie al fallo técnico; si notas molestias en insistir, haz repes negativas controladas.`
+    }
+  ],
+  "martes":[
+    {
+      "n":"Dominadas con lastre / Jalón al pecho — 3×6–8 — RIR 1–2 — Descanso 120s",
+      "d":`Qué hace: Dorsal ancho y fuerza de tirón.
+Setup (dominadas): Agarre ligeramente más ancho que hombros, scapulas retraídas.
+Ejecución:
+  - Sube 1–2s llevando pecho a la barra; baja 2–3s controlado. Evita balanceo.
+Si usas jalón al pecho: Lleva barra al pecho superior con la misma técnica.
+Errores: Tirar solo con brazos y no involucrar dorsal.
+Tips: Mantén hombros bajos (no cerca de orejas); si fallas, usa banda o jalón asistido.`
+    },
+    {
+      "n":"Remo con barra — 3×8–10 — RIR 1–2 — Descanso 90s",
+      "d":`Qué hace: Espesor de la espalda (trapecio medio, dorsal medio).
+Setup: Cadera atrás, espalda neutra, rodillas ligeramente flexionadas.
+Ejecución:
+  - Tira la barra al ombligo 1–2s, aprieta omóplatos 1s; baja 2–3s. Exhala al tirar.
+Errores: Redondear la espalda o usar impulso desde piernas.
+Tips: No hagas repes rápidas; controla excéntrico para hipertrofia.`
+    },
+    {
+      "n":"SUPERSET: Face pull + Remo al mentón con cuerda — 3×12 + 12 — RIR0 última — Descanso 90s entre supersets",
+      "d":`Face pull — ejecución:
+  - Cuerda a la cara, empuja hacia tu cara separando manos; aprieta omóplatos 1s; baja 2–3s.
+Remo al mentón con cuerda — ejecución:
+  - Alterna tirar la cuerda hacia arriba (codos alzados) hasta delante de la cara; sube 1–2s, baja 2–3s.
+Errores: Momentum, hombros por delante.
+Tips: Excelente para deltoides posteriores y salud de hombro. Última serie al fallo: baja peso si hace falta.`
+    },
+    {
+      "n":"Curl martillo — 3×10–12 — RIR 1–2 — Descanso 60s",
+      "d":`Qué hace: Braquial + braquiorradial (grosor antebrazo).
+Ejecución: igual que arriba.
+Tips: Mantén muñeca neutra; buena opción entre tirones.`
+    },
+    {
+      "n":"SUPERSET: Curl concentrado + Curl 21s — 2×8–12 + 21s — RIR0 — Descanso 90s",
+      "d":`Curl concentrado — ejecución:
+  - Sentado, codo apoyado en muslo, sube sentado 1–2s, baja 2–3s; máxima contracción arriba.
+Curl 21s — ejecución:
+  - Serie de 21 repes: 7 repes por la mitad inferior, 7 por la mitad superior, 7 completas. Control absoluto.
+Errores: Usar impulso con hombros.
+Tips: Esta superserie es la bomba final — ve al fallo técnico en el 21s.`
+    }
+  ],
+  "miercoles":[
+    {
+      "n":"Sentadilla con barra — 4×5–7 — RIR1–2 — Descanso 120s",
+      "d":`Qué hace: Movimiento rey de piernas; trabaja cuádriceps, glúteos, core.
+Setup: Barra apoyada alta o baja según movilidad; pies fuera a anchura de hombros; mirada al frente; escápulas apretadas.
+Ejecución:
+  1. Inhala, baja 2–3s hasta paralelo o un poco más según movilidad.
+  2. Empuja con talones, sube 1–2s explosivo. Exhala al subir.
+Errores: Rodillas hacia dentro, espalda redonda, subir sobre puntas.
+Tips: Mantén core tenso; si te falta movilidad, usa caja o frontal squat como alternativa; progresión: añade 2.5–5 kg cada 1–2 semanas si mantienes forma.`
+    },
+    {
+      "n":"Prensa de piernas — 3×8–10 — RIR1–2 — Descanso 90s",
+      "d":"Qué hace: Aumenta volumen de cuádriceps y glúteos sin tanta demanda de core. Ejecución: controlada; evita bloqueo completo de rodillas al final; empuja con talones para glúteo. Errores: Apoyar pies muy arriba (más femoral) si tu objetivo es quad. Tips: Ajusta la placa para el rango que sientas."
+    },
+    {
+      "n":"Zancadas / Sentadilla búlgara — 3×10 por pierna — RIR0–1 — Descanso 75s",
+      "d":"Qué hace: Unilateral, corrige desequilibrios y fuerza de glúteo/cuádricep. Ejecución: Paso controlado, desciende 2–3s, sube 1–2s; mantén torso vertical. Errores: Apoyar demasiado el peso en la pierna trasera. Tips: Si quieres más potencia, usa mancuernas o barra; la búlgara es brutal para fuerza y estabilidad."
+    },
+    {
+      "n":"Extensiones de cuádriceps — 2×12–15 — RIR0–1 — Descanso 45–60s",
+      "d":"Qué hace: Aislamiento para quad; excelente finisher. Ejecución: Pausa 1s en máxima contracción; controla la bajada. Errores: Rebotar en la parte baja. Tips: En la última serie haz un dropset si quieres quemar."
+    },
+    {
+      "n":"Elevación de gemelos — 3×12–15 — RIR0 — Descanso 30–45s",
+      "d":"Qué hace: Gemelos (soleo + gastrocnemio). Ejecución: completa extensión y bajada controlada; pausa 1s arriba. Errores: Subir a media altura; chequear rango. Tips: Alta repetición y series forzadas funcionan mejor; si puedes, haz 4–5 series."
+    }
+  ],
+  "jueves":[
+    {
+      "n":"Press inclinado con mancuerna — 3×8–10 — RIR1–2 — Descanso 90s",
+      "d":"Qué hace: Parte clavicular del pectoral (superior). Ejecución: banco inclinado 30–35°; baja controlada 2–3s; sube 1–2s. Aprieta parte superior del pecho. Errores: Inclinación excesiva que convierte en press militar. Tips: Mantén los codos ligeramente hacia fuera."
+    },
+    {
+      "n":"Jalón unilateral / Remo en polea — 3×8–10 — RIR1–2 — Descanso 90s",
+      "d":"Qué hace: Control de dorsal con enfoque unilateral para equilibrar. Ejecución: tira con el codo, aprieta dorsal 1s, baja 2–3s. Errores: Torso balanceado. Tips: Haz una pierna delante para estabilidad; siente el dorsal, no el brazo."
+    },
+    {
+      "n":"Press militar con mancuerna — 3×10 — RIR1–2 — Descanso 75s",
+      "d":"Qué hace: Hombros, estabilidad unilateral. Ejecución: Como la versión con barra, pero cada brazo por separado; controla rotación. Tips: Dobla ligeramente las piernas para más estabilidad."
+    },
+    {
+      "n":"Remo con mancuerna — 3×10 — RIR1–2 — Descanso 75s",
+      "d":"Qué hace: Espesor unilateral, control de cada lado. Ejecución: Apoya rodilla en banco, tira 1–2s, baja 2–3s. Aprieta omóplatos arriba 1s. Errores: Rotar torso. Tips: Mantén tronco paralelo al suelo para alineación."
+    },
+    {
+      "n":"SUPERSET: Fondos tríceps + Cuerda en polea — 3×10–12 + 10–12 — RIR0 última — Descanso 90s",
+      "d":"Qué hace: Revienta tríceps, sin descanso entre ejercicios. Fondos: enfoca torso vertical para más tríceps. Cuerda: extiende completamente, aprieta 1s."
+    },
+    {
+      "n":"SUPERSET: Curl alterno + Curl martillo — 2×10 + 10 — RIR0 última — Descanso 90s",
+      "d":"Qué hace: Pump máximo en brazos. Curl alterno: control clásico. Curl martillo: muñeca neutra. Tips: En la última ronda, si te falta tiempo, baja 20% de carga y haz 2 repes forzadas."
+    }
+  ],
+  "viernes":[
+    {
+      "n":"Peso muerto rumano / Hip thrust — 4×8 — RIR1–2 — Descanso 120s",
+      "d":"Qué hace: Isquiotibiales y glúteos principalmente; hip thrust enfoca glúteo. Peso muerto rumano — ejecución: piernas ligeramente flexionadas, espalda neutra. Baja 2–3s hasta sentir tensión en femoral, sube 1–2s apretando glúteos. Hip thrust — ejecución: espalda alta apoyada en banco, barra sobre pelvis (almohadilla), sube apretando glúteos 1–2s, baja controlado. Errores: Redondear espalda (deadlift) o arquear (hip thrust). Tips: Incluye ambos en rotación o usa uno como primario y el otro como accesorio."
+    },
+    {
+      "n":"Curl femoral tumbado — 3×10–12 — RIR1–2 — Descanso 75s",
+      "d":"Qué hace: Femorales aislados. Ejecución: controla el descenso (excéntrico) 2–3s y sube 1–2s. Errores: Balanceo de pelvis. Tips: Aprieta arriba, no uses caderas para ayudar."
+    },
+    {
+      "n":"Prensa inclinada / Zancada — 3×10–12 — RIR0–1 — Descanso 90s",
+      "d":"Qué hace: Trabajo adicional para isquios/glúteo (según posición de pie). Ejecución: empuja controlado; si eliges zancada, mantén torso recto y paso firme. Tips: Si te haces zancadas: cámara lenta en la bajada mejora reclutamiento."
+    },
+    {
+      "n":"Elevación de cadera con barra — 3×10–12 — RIR0–1 — Descanso 75s",
+      "d":"Qué hace: Glúteo principal, fuerza de extensión de cadera. Ejecución: Sostén 1s arriba, aprieta glúteos fuertemente, baja controlado. Errores: No hiperextender columna lumbar. Tips: Usa banda encima de rodillas si quieres más activación glútea."
+    },
+    {
+      "n":"Gemelos sentado — 3×12–15 — RIR0 — Descanso 30–45s",
+      "d":"Qué hace: Gemelos (soleo foco sentado). Ejecución: Sube completa, pausa 1s, baja controlado 2–3s. Ve al fallo técnico en la última. Tips: Haz series altas y mantén tensión."
+    }
+  ],
+  "descanso":[
+    {
+      "n":"Descanso — Sábado/Domingo",
+      "d":"Recupera y come: proteína 2 g/kg, hidratos distribuidos, dormir 7–9h. Cardio suave opcional 20–30 min."
+    }
+  ]
+};
+
+const bigText = `
+# Rutina Dios Total — Semana completa, ejercicio por ejercicio (RIR, ejecución y tips detallados) 💀💪
+
+Reglas generales aplicables a TODOS los ejercicios
+- Ritmo por defecto que usamos: subida 1–2s, bajada 2–3s, aprieta 1s arriba cuando toque.
+- RIR = Reps In Reserve (repeticiones en reserva). Si dice RIR 1–2 significa que acabas la serie y podrías haber hecho 1–2 repes más con buena forma. RIR 0 = ir al fallo técnico (parar cuando la técnica empieza a romperse).
+- Descansos indicados entre series. Respira profundo antes de cada serie (inhla → tensión → exhala al final del esfuerzo).
+- Técnica primero, peso después. Si haces trampa pierdes crecimiento y te rompes.
+- Calentamiento: 6–10 min cardio suave + series de activación del músculo (2 series ligeras de cada compuesto) antes de empezar pesado.
+`;
+
+function renderDay(key){
+  const container = document.getElementById('content');
+  const day = fullData[key];
+  if(key === 'descanso'){
+    container.innerHTML = \`<div class="detail" style="text-align:center;"><h2>Descanso: Recupera y come como un puto dios 💀🔥</h2><p>\${day[0].d}</p></div>\`;
+    document.getElementById('progressBar').style.width = '100%';
+    return;
+  }
+  
+  let html = '';
+  day.forEach((ex, idx)=>{
+    const isSuperset = ex.n.toLowerCase().includes('super');
+    html += `
+      <div class="exercise \${isSuperset ? 'superset' : ''}" id="ex-\${idx}">
+        <div class="checkrow">
+          <input type="checkbox" id="chk-\${idx}" onchange="updateProgress()">
+        </div>
+        <div style="flex:1">
+          <h3>\${ex.n}</h3>
+          <div class="detail">\${ex.d}</div>
+        </div>
+      </div>
+    `;
+  });
+  html += \`<div class="bigtext"><strong>MANUAL DE REGLAS:</strong>\n\${bigText}</div>\`;
+  container.innerHTML = html;
+  updateProgress();
+}
+
+function updateProgress(){
+  const boxes = document.querySelectorAll('#content input[type="checkbox"]');
+  const total = boxes.length;
+  if (total === 0) return;
+  const checked = Array.from(boxes).filter(b=>b.checked).length;
+  boxes.forEach(b=>{
+    const parent = b.closest('.exercise');
+    if(b.checked) parent.classList.add('done'); else parent.classList.remove('done');
+  });
+  const perc = Math.round((checked/total)*100);
+  document.getElementById('progressBar').style.width = perc + '%';
+}
+
+document.getElementById('day').addEventListener('change', e=> renderDay(e.target.value));
+renderDay('lunes');
+</script>
+
+</div>
+<footer>Rutina Dios Total — Manual Completo — Sin recortes</footer>
+</body>
+</html>
